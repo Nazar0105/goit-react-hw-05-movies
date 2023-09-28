@@ -24,7 +24,6 @@ function MovieDetails() {
     <div>
       <h2>{movieDetails.title}</h2>
       <p>{movieDetails.overview}</p>
-      {/* Додайте іншу інформацію про фільм */}
     </div>
   );
 }

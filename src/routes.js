@@ -1,4 +1,5 @@
 import React from 'react';
+import NotFoundPage from './NotFoundPage';
 
 const Home = React.lazy(() => import('./pages/Home/Home'));
 const Movies = React.lazy(() => import('./pages/Movies/Movies'));

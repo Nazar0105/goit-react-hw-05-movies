@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+// eslint-disable-next-line
 import styles from './Movies.module.css';
+
 
 function Movies() {
   const [searchQuery, setSearchQuery] = useState('');

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// eslint-disable-next-line
 import styles from './MoviesList.module.css';
+
 
 
 const MoviesList = ({ movies }) => {

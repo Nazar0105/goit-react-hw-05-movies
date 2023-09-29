@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+// eslint-disable-next-line
 import styles from './Reviews.module.css';
+
 
 function Reviews() {
   const { movieId } = useParams();

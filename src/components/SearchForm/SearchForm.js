@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './SearchForm.module.css';
 
 const SearchForm = ({ onSubmit }) => {
   const [query, setQuery] = useState('');

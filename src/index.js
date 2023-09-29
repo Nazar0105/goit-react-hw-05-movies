@@ -1,20 +1,20 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { createRoot } from 'react-dom/client'; // Змінили імпорт
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-
-import './index.css';
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
-    <Router>
+    <BrowserRouter basename="/goit-react-hw-05-movies">
       <App />
-    </Router>
+    </BrowserRouter>
   </React.StrictMode>
 );
+
+
 
 
 

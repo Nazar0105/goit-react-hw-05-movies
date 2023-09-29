@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import styles from './Cast.module.css';
 
 function Cast() {
   const { movieId } = useParams();

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import styles from './MovieDetails.module.css'; // Імпорт модуля стилів
 
 function MovieDetails() {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
+  const defaultImg = 'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
   useEffect(() => {
     if (!movieId) return;
@@ -21,13 +23,29 @@ function MovieDetails() {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <h2>{movieDetails.title}</h2>
       <p>{movieDetails.overview}</p>
-      <Link to="/movies">Back to Movies</Link>
+      <img
+        src={
+          movieDetails.poster_path
+            ? `https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`
+            : defaultImg
+        }
+        alt="Movie Poster"
+        width={250}
+      />
+      <Link className={styles.link} to={`/movies/${movieId}/cast`}>
+        Cast
+      </Link>
+      <Link className={styles.link} to={`/movies/${movieId}/reviews`}>
+        Reviews
+      </Link>
+      <Link className={styles.link} to="/movies">
+        Back to Movies
+      </Link>
     </div>
   );
 }
 
 export default MovieDetails;
-

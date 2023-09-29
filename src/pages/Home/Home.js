@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import SearchForm from '../../components/SearchForm/SearchForm'; // Правильний шлях до SearchForm
 import MoviesList from '../../components/MoviesList/MoviesList'; // Правильний шлях до MoviesList
 
+
 function Home() {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [searchResults, setSearchResults] = useState([]); // Стан для зберігання результатів пошуку

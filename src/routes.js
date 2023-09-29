@@ -8,7 +8,7 @@ const Reviews = React.lazy(() => import('./pages/Reviews/Reviews'));
 
 const routes = [
   {
-    path: '/',
+    path: '/Home',
     element: <Home />,
   },
   {

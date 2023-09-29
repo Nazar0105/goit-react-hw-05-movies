@@ -21,7 +21,15 @@ function Cast() {
       <h2>Cast</h2>
       <ul>
         {cast.map((actor) => (
-          <li key={actor.id}>{actor.name}</li>
+          <li key={actor.id}>
+            {actor.name}
+            {actor.profile_path && ( // Перевірка наявності фото актора
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
+                alt={`${actor.name}'s profile`}
+              />
+            )}
+          </li>
         ))}
       </ul>
     </div>
@@ -29,3 +37,4 @@ function Cast() {
 }
 
 export default Cast;
+

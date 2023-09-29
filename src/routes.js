@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Home = React.lazy(() => import('./components/Home/Home'));
-const Movies = React.lazy(() => import('./components/Movies/Movies'));
-const MovieDetails = React.lazy(() => import('./components/MovieDetails/MovieDetails'));
-const Cast = React.lazy(() => import('./components/Cast/Cast'));
-const Reviews = React.lazy(() => import('./components/Reviews/Reviews'));
+const Home = React.lazy(() => import('./pages/Home/Home'));
+const Movies = React.lazy(() => import('./pages/Movies/Movies'));
+const MovieDetails = React.lazy(() => import('./pages/MovieDetails/MovieDetails'));
+const Cast = React.lazy(() => import('./pages/Cast/Cast'));
+const Reviews = React.lazy(() => import('./pages/Reviews/Reviews'));
 
 const routes = [
   {
@@ -27,6 +27,11 @@ const routes = [
     path: '/movies/:movieId/reviews',
     element: <Reviews />,
   },
+
+  {
+  path: '*',
+  element: <NotFoundPage />, 
+}
 ];
 
 export default routes;

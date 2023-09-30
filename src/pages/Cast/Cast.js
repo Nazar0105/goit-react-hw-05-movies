@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCredits } from '../../api'; // Імпортуємо функцію з api.js
-import styles from './Cast.module.css';
+// eslint-disable-next-line
+ import styles from './Cast.module.css';
 
 function Cast() {
   const { movieId } = useParams();

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import SearchForm from '../../components/SearchForm/SearchForm';
+// eslint-disable-next-line
 import MoviesList from '../../components/MoviesList/MoviesList';
 
 function Movies() {
+  // eslint-disable-next-line
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 

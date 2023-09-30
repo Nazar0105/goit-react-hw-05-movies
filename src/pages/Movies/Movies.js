@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import SearchForm from '../../components/SearchForm/SearchForm';
-// eslint-disable-next-line
 import MoviesList from '../../components/MoviesList/MoviesList';
 
 function Movies() {
-  // eslint-disable-next-line
-  const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = (query) => {
@@ -19,28 +16,11 @@ function Movies() {
       });
   };
 
-  const defaultImg = 'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
-
   return (
     <div>
       <h2>Search Movies</h2>
       <SearchForm onSubmit={handleSearch} />
-      <ul>
-        {searchResults.map((movie) => (
-          <li key={movie.id}>
-            <h3>{movie.title}</h3>
-            <p>{movie.overview}</p>
-            <img
-              src={movie.poster_path
-                ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-                : defaultImg
-              }
-              alt="Movie Poster"
-              width={250}
-            />
-          </li>
-        ))}
-      </ul>
+      <MoviesList movies={searchResults} />
     </div>
   );
 }

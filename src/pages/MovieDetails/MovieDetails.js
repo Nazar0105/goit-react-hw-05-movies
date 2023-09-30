@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import styles from './MovieDetails.module.css'; // Імпорт модуля стилів
+import { useParams, Link, Outlet } from 'react-router-dom';
+import styles from './MovieDetails.module.css';
 
 function MovieDetails() {
   const { movieId } = useParams();
@@ -26,6 +26,9 @@ function MovieDetails() {
     <div className={styles.container}>
       <h2>{movieDetails.title}</h2>
       <p>{movieDetails.overview}</p>
+      <p>Genre: {movieDetails.genres.map((genre) => genre.name).join(', ')}</p>
+      <p>Rating: {movieDetails.vote_average}/10</p>
+
       <img
         src={
           movieDetails.poster_path
@@ -41,11 +44,16 @@ function MovieDetails() {
       <Link className={styles.link} to={`/movies/${movieId}/reviews`}>
         Reviews
       </Link>
-      <Link className={styles.link} to="/movies">
-        Back to Movies
+      <Link className={styles.link} to="/">
+        Back to Home
       </Link>
+
+      {/* Використовуйте Outlet для рендерингу вкладених маршрутів */}
+      <Outlet />
     </div>
   );
 }
 
 export default MovieDetails;
+
+

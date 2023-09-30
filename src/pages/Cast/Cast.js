@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 // eslint-disable-next-line
 import styles from './Cast.module.css';
 
-
 function Cast() {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
@@ -26,10 +25,11 @@ function Cast() {
         {cast.map((actor) => (
           <li key={actor.id}>
             {actor.name}
-            {actor.profile_path && ( // Перевірка наявності фото актора
+            {actor.profile_path && (
               <img
                 src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
                 alt={`${actor.name}'s profile`}
+                width={250} // Додайте ширину для зображень акторів
               />
             )}
           </li>
@@ -40,4 +40,5 @@ function Cast() {
 }
 
 export default Cast;
+
 

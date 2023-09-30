@@ -7,9 +7,10 @@ const MovieDetails = React.lazy(() => import('./pages/MovieDetails/MovieDetails'
 const Cast = React.lazy(() => import('./pages/Cast/Cast'));
 const Reviews = React.lazy(() => import('./pages/Reviews/Reviews'));
 
+
 const routes = [
   {
-    path: '/Home',
+    path: '/',
     element: <Home />,
   },
   {
@@ -20,19 +21,11 @@ const routes = [
     path: '/movies/:movieId',
     element: <MovieDetails />,
   },
+  // Додавання маршруту для перенаправлення на домашню сторінку при неіснуючому маршруті
   {
-    path: '/movies/:movieId/cast',
-    element: <Cast />,
+    path: '*',
+    element: <NotFoundPage />,
   },
-  {
-    path: '/movies/:movieId/reviews',
-    element: <Reviews />,
-  },
-
-  {
-  path: '*',
-  element: <NotFoundPage />, 
-}
 ];
 
 export default routes;

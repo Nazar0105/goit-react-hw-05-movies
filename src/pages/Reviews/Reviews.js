@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// eslint-disable-next-line
-import styles from './Reviews.module.css';
-
 
 function Reviews() {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
+  const defaultMessage = 'No reviews for this movie yet.';
 
   useEffect(() => {
-    if (!movieId) return;
-
+    // Отримайте огляди фільму за допомогою movieId і встановіть їх у стан компонента
     fetch(
       `https://api.themoviedb.org/3/movie/${movieId}/reviews?language=en-US&page=1&api_key=316b4ff5021b2aca3f42c833755ebf8b`
     )
@@ -22,17 +19,22 @@ function Reviews() {
   return (
     <div>
       <h2>Reviews</h2>
-      <ul>
-        {reviews.map((review) => (
-          <li key={review.id}>
-            <h3>{review.author}</h3>
-            <p>{review.content}</p>
-          </li>
-        ))}
-      </ul>
+      {reviews.length === 0 ? (
+        <p>{defaultMessage}</p>
+      ) : (
+        <ul>
+          {reviews.map((review) => (
+            <li key={review.id}>
+              <h3>{review.author}</h3>
+              <p>{review.content}</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
 
 export default Reviews;
+
 

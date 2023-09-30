@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/75.db8aa90c.chunk.css","mappings":"AAAA,GACI,eAAgB,CAChB,SACJ,CAEA,GACI,cAAe,CACf,kBACJ","sources":["components/MoviesList/MoviesList.module.css"],"sourcesContent":["ul {\n    list-style: none;\n    padding: 0;\n}\n\nli {\n    font-size: 18px;\n    margin-bottom: 10px;\n}"],"names":[],"sourceRoot":""}

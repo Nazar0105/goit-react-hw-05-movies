@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// eslint-disable-next-line
+import { fetchMovieCredits } from '../../api'; // Імпортуємо функцію з api.js
 import styles from './Cast.module.css';
 
 function Cast() {
@@ -10,10 +10,7 @@ function Cast() {
   useEffect(() => {
     if (!movieId) return;
 
-    fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US&api_key=316b4ff5021b2aca3f42c833755ebf8b`
-    )
-      .then((response) => response.json())
+    fetchMovieCredits(movieId) // Використовуйте функцію для отримання інформації про акторів
       .then((data) => setCast(data.cast))
       .catch((error) => console.error('Error fetching data:', error));
   }, [movieId]);
@@ -29,7 +26,7 @@ function Cast() {
               <img
                 src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
                 alt={`${actor.name}'s profile`}
-                width={250} // Додайте ширину для зображень акторів
+                width={250}
               />
             )}
           </li>
@@ -40,5 +37,6 @@ function Cast() {
 }
 
 export default Cast;
+
 
 

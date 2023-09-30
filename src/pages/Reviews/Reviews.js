@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { fetchMovieReviews } from '../../api'; // Імпортуємо функцію з api.js
 
 function Reviews() {
   const { movieId } = useParams();
@@ -7,11 +8,9 @@ function Reviews() {
   const defaultMessage = 'No reviews for this movie yet.';
 
   useEffect(() => {
-    // Отримайте огляди фільму за допомогою movieId і встановіть їх у стан компонента
-    fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/reviews?language=en-US&page=1&api_key=316b4ff5021b2aca3f42c833755ebf8b`
-    )
-      .then((response) => response.json())
+    if (!movieId) return;
+
+    fetchMovieReviews(movieId) // Використовуйте функцію для отримання оглядів
       .then((data) => setReviews(data.results))
       .catch((error) => console.error('Error fetching data:', error));
   }, [movieId]);

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, Outlet } from 'react-router-dom';
+import { fetchMovieDetails } from '../../api'; // Імпортуємо функцію для отримання деталей фільму
 import styles from './MovieDetails.module.css';
 
 function MovieDetails() {
@@ -10,10 +11,7 @@ function MovieDetails() {
   useEffect(() => {
     if (!movieId) return;
 
-    fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}?language=en-US&api_key=316b4ff5021b2aca3f42c833755ebf8b`
-    )
-      .then((response) => response.json())
+    fetchMovieDetails(movieId) // Використовуємо функцію для отримання деталей фільму
       .then((data) => setMovieDetails(data))
       .catch((error) => console.error('Error fetching data:', error));
   }, [movieId]);
@@ -21,7 +19,6 @@ function MovieDetails() {
   if (!movieDetails) {
     return <div>Loading...</div>;
   }
-
   return (
     <div className={styles.container}>
       <h2>{movieDetails.title}</h2>
@@ -55,5 +52,6 @@ function MovieDetails() {
 }
 
 export default MovieDetails;
+
 
 

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import MoviesList from '../../components/MoviesList/MoviesList';
+import { fetchSearchMovies } from '../../api'; // Імпортуємо функцію для пошуку фільмів
 
 function Movies() {
   const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = (query) => {
-    fetch(`https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1&query=${query}&api_key=316b4ff5021b2aca3f42c833755ebf8b`)
-      .then((response) => response.json())
+    fetchSearchMovies(query) // Використовуємо функцію для пошуку фільмів
       .then((data) => {
         setSearchResults(data.results);
       })
